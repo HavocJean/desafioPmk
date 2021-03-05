@@ -5,10 +5,10 @@
         @include('topbar')
         <div class="container">
             <div class="card mt-4">
-                <div class="card-header">{{ __('Cadastrar Doador') }}</div>
+                <div class="card-header">{{ __('Atualizar dados do Doador') }}</div>
                 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/doador/update/', $doador->id) }}">
+                    <form method="POST" action="{{ url('/doador/update', $doador->id) }}">
                         @csrf
 
                         <div class="form-group row">
@@ -72,11 +72,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-info">
-                                    {{ __('Cadastrar') }}
+                                    {{ __('Atualizar') }}
                                 </button>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="{{ url('/') }}" class="btn btn-primary">Voltar</a>
+                                <a href="{{ route('doadores') }}" class="btn btn-info">Voltar</a>
                             </div>
                         </div>
 

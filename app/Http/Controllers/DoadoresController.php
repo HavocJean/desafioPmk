@@ -47,18 +47,26 @@ class DoadoresController extends Controller
         return view('doadores.edit', ['doador' => $doador]);
     }
 
-    // public function updateDoador(Request $r, $id) {
-    //     $atribuicao = Atribuicoes::find($id)->update([
-    //         'descricao' => $r['descricao'],
-    //         'updated_at' => Carbon::now()
-    //     ]);
+    public function updateDoador(Request $r, $id) {
+        $doador = Doadores::find($id)->update([
+            'nome' => $r['nome'],
+            'email' => $r['email'],
+            'cpf' => $r['cpf'],
+            'telefone' => $r['telefone'],
+            'dt_nascimento' => $r['dt_nascimento'],
+            'intervalo_doacao' => $r['intervalo_doacao'],
+            'vl_doacao' => $r['vl_doacao'],
+            'forma_pag' => $r['forma_pag'],
+            'endereco' => $r['endereco'],
+            'updated_at' => Carbon::now()
+        ]);
 
-    //     return redirect()->route('atribuicoes')->with('success', 'Atribuição atualizada com sucesso!');
-    // }
+        return redirect()->route('doadores')->with('success', 'Doador atualizado com sucesso!');
+    }
 
-    // public function deleteDoador($id) {
-    //     $atribuicoes = Atribuicoes::find($id)->delete();
+    public function deleteDoador($id) {
+        $doador = Doadores::find($id)->delete();
 
-    //     return redirect()->back()->with('success', 'Atribuição deletado com sucesso!');
-    // }
+        return redirect()->back()->with('success', 'Doador deletado com sucesso!');
+    }
 }

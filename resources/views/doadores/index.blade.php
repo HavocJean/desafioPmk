@@ -17,6 +17,14 @@
                     </form>
                 </div>
             </div>
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <!-- INICIO TABELA -->
             <table class="table mt-2">
                 <thead class="thead-dark">
@@ -39,7 +47,7 @@
                             <td>{{ $doador->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ url('/doador/edit/'.$doador->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ url('/doador/update/'.$doador->id) }}" class="btn btn-danger" onclick="confirm('Gostaria mesmo de deletar?')">Deletar</a>
+                                <a href="{{ url('/doador/delete/'.$doador->id) }}" class="btn btn-danger" onclick="confirm('Gostaria mesmo de deletar?')">Deletar</a>
                             </td>
                         </tr>
                     @endforeach

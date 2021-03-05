@@ -80,13 +80,16 @@
                                 </button>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="{{ url('/') }}" class="btn btn-primary">Voltar</a>
+                                <a href="{{ route('doadores') }}" class="btn btn-info">Voltar</a>
                             </div>
                         </div>
 
                         @if(session('success'))
-                            <div class="alert alert-success mt-2 text-center">
-                                <p>{{session('success')}}</p>
+                            <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                         @endif
 
